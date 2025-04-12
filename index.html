@@ -3,51 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhargava G K | Cybersecurity Expert</title>
+    <title>Bhargava G Kodawath | Cybersecurity Professional</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#00FF41',secondary:'#0066FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#00ff9d',secondary:'#0077ff'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         :where([class^="ri-"])::before { content: "\f3c2"; }
         
-        :root {
-            --bg-color: #0C0C0C;
-            --text-color: #e2e2e2;
-            --primary: #00FF41;
-            --secondary: #0066FF;
-            --accent: #FF00AA;
-            --terminal-font: 'Fira Code', monospace;
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
         
-        body {
-            font-family: var(--terminal-font);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
         }
         
-        .terminal-text {
-            font-family: var(--terminal-font);
+        @keyframes blink {
+            50% { border-color: transparent }
         }
         
-        .glow {
-            text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
-        }
-        
-        .glow-blue {
-            text-shadow: 0 0 5px var(--secondary), 0 0 10px var(--secondary);
-        }
-        
-        .glow-box {
-            box-shadow: 0 0 5px var(--primary), 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-        
-        .glow-box-blue {
-            box-shadow: 0 0 5px var(--secondary), 0 0 10px rgba(0, 102, 255, 0.3);
+        @keyframes matrix-rain {
+            0% { top: -10%; }
+            100% { top: 100%; }
         }
         
         .matrix-bg {
@@ -56,509 +43,267 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        .typed-cursor {
-            color: var(--primary);
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        .terminal-window {
-            border: 1px solid rgba(0, 255, 65, 0.3);
-            border-radius: 8px;
-            background-color: rgba(12, 12, 12, 0.8);
-            backdrop-filter: blur(5px);
-        }
-        
-        .terminal-header {
-            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .terminal-circle {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
             overflow: hidden;
-            position: relative;
+            z-index: -1;
         }
         
-        .progress-fill {
-            height: 100%;
+        .matrix-rain {
             position: absolute;
-            left: 0;
-            top: 0;
-            background-color: var(--primary);
-            transition: width 1s ease;
+            color: rgba(0, 255, 157, 0.7);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px #00ff9d;
+            user-select: none;
+            pointer-events: none;
+            animation: matrix-rain 15s linear infinite;
         }
         
-        .hexagon {
-            position: relative;
-            width: 100px;
-            height: 57.74px;
-            margin: 28.87px 0;
-            background-color: rgba(0, 255, 65, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+        .terminal-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #00ff9d;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
         }
         
-        .hexagon:before,
-        .hexagon:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
+        .glitch-effect {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            animation-delay: 0.5s;
+            animation-iteration-count: 3;
         }
         
-        .hexagon:before {
-            bottom: 100%;
-            border-bottom: 28.87px solid rgba(0, 255, 65, 0.1);
-        }
-        
-        .hexagon:after {
-            top: 100%;
-            border-top: 28.87px solid rgba(0, 255, 65, 0.1);
-        }
-        
-        .hexagon:hover {
-            background-color: rgba(0, 255, 65, 0.2);
-        }
-        
-        .hexagon:hover:before {
-            border-bottom-color: rgba(0, 255, 65, 0.2);
-        }
-        
-        .hexagon:hover:after {
-            border-top-color: rgba(0, 255, 65, 0.2);
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 1px;
-            background-color: rgba(0, 255, 65, 0.3);
-        }
-        
-        .timeline-item:after {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 10px;
-            height: 12px;
-            width: 12px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
-        }
-        
-        .glass-card {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 65, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        input, textarea, button {
-            background-color: rgba(30, 30, 30, 0.7);
-            border: 1px solid rgba(0, 255, 65, 0.3);
-            color: var(--text-color);
-            font-family: var(--terminal-font);
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
-        }
-        
-        .custom-checkbox {
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 1px solid rgba(0, 255, 65, 0.5);
-            background-color: transparent;
-            border-radius: 4px;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .custom-checkbox:checked {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .custom-checkbox:checked::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--bg-color);
-            font-size: 14px;
-        }
-        
-        .custom-range {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            outline: none;
-        }
-        
-        .custom-range::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 0 5px var(--primary);
-        }
-        
-        .custom-range::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 0 5px var(--primary);
-            border: none;
-        }
-        
-        .custom-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-        
-        .custom-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .switch-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(30, 30, 30, 0.7);
-            transition: .4s;
-            border-radius: 34px;
-            border: 1px solid rgba(0, 255, 65, 0.3);
-        }
-        
-        .switch-slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 3px;
-            background-color: var(--text-color);
-            transition: .4s;
-            border-radius: 50%;
-        }
-        
-        input:checked + .switch-slider {
-            background-color: var(--primary);
-        }
-        
-        input:checked + .switch-slider:before {
-            transform: translateX(26px);
-        }
-        
-        .radio-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .custom-radio {
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 1px solid rgba(0, 255, 65, 0.5);
-            border-radius: 50%;
-            background-color: transparent;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .custom-radio:checked {
-            border-color: var(--primary);
-        }
-        
-        .custom-radio:checked::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            box-shadow: 0 0 5px var(--primary);
-        }
-        
-        ::-webkit-scrollbar {
+        .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
         }
         
-        ::-webkit-scrollbar-track {
-            background: rgba(30, 30, 30, 0.7);
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0a0a0a;
         }
         
-        ::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 65, 0.5);
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #00ff9d;
             border-radius: 4px;
         }
         
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
         
-        @keyframes scanline {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100%);
-            }
+        .skill-bar {
+            position: relative;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
         }
         
-        .scanline {
+        .skill-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #00ff9d, #0077ff);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill:none;stroke:%2300ff9d;stroke-width:2'><circle cx='8' cy='8' r='6'/></svg>") 8 8, auto;
+        }
+        
+        .terminal {
+            background-color: rgba(16, 16, 16, 0.9);
+            border: 1px solid #00ff9d;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .terminal::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 10px;
-            background: linear-gradient(to bottom, 
-                rgba(0, 255, 65, 0) 0%,
-                rgba(0, 255, 65, 0.1) 50%,
-                rgba(0, 255, 65, 0) 100%);
-            opacity: 0.1;
-            animation: scanline 8s linear infinite;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 255, 157, 0.05), transparent);
             pointer-events: none;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .terminal-title {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 0.5rem;
+        }
+        
+        .command-prompt::before {
+            content: '$ ';
+            color: #00ff9d;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00ff9d;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .form-input {
+            background-color: rgba(16, 16, 16, 0.7);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #00ff9d;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #00ff9d, #0077ff);
+            color: #0a0a0a;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
+            transform: translateY(-2px);
+        }
+        
+        .binary-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.05;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="20" font-family="monospace" font-size="10" fill="%2300ff9d">10110</text><text x="50" y="40" font-family="monospace" font-size="10" fill="%2300ff9d">01001</text><text x="30" y="60" font-family="monospace" font-size="10" fill="%2300ff9d">11010</text><text x="70" y="80" font-family="monospace" font-size="10" fill="%2300ff9d">00101</text></svg>');
         }
     </style>
 </head>
-<body>
-    <div class="scanline"></div>
+<body class="custom-scrollbar">
+    <div class="binary-bg"></div>
     
-    <!-- Matrix Background Canvas -->
-    <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-bg" id="matrix-bg"></div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[rgba(12,12,12,0.9)] backdrop-blur-md border-b border-[rgba(0,255,65,0.3)]">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#home" class="text-primary font-['Pacifico'] text-2xl">logo</a>
-            
-            <div class="hidden md:flex items-center space-x-6">
-                <div class="flex items-center space-x-2 text-xs text-gray-400">
-                    <span>CPU:</span>
-                    <div class="w-20 h-2 bg-[rgba(255,255,255,0.1)] rounded-full overflow-hidden">
-                        <div class="h-full bg-primary" style="width: 42%"></div>
-                    </div>
-                    <span>42%</span>
+    <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md z-50 border-b border-primary border-opacity-30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-primary font-['Pacifico'] text-2xl">B<span class="text-white">GK</span></a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-primary transition-colors">&lt;Home/&gt;</a>
+                    <a href="#about" class="nav-link text-white hover:text-primary transition-colors">&lt;About/&gt;</a>
+                    <a href="#skills" class="nav-link text-white hover:text-primary transition-colors">&lt;Skills/&gt;</a>
+                    <a href="#certifications" class="nav-link text-white hover:text-primary transition-colors">&lt;Certifications/&gt;</a>
+                    <a href="#contact" class="nav-link text-white hover:text-primary transition-colors">&lt;Contact/&gt;</a>
                 </div>
                 
-                <div class="flex items-center space-x-2 text-xs text-gray-400">
-                    <span>MEM:</span>
-                    <div class="w-20 h-2 bg-[rgba(255,255,255,0.1)] rounded-full overflow-hidden">
-                        <div class="h-full bg-primary" style="width: 68%"></div>
-                    </div>
-                    <span>68%</span>
-                </div>
-                
-                <div class="flex items-center space-x-2 text-xs text-gray-400">
-                    <span>NET:</span>
-                    <div class="w-20 h-2 bg-[rgba(255,255,255,0.1)] rounded-full overflow-hidden">
-                        <div class="h-full bg-primary" style="width: 87%"></div>
-                    </div>
-                    <span>87%</span>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white hover:text-primary">
+                        <div class="w-10 h-10 flex items-center justify-center">
+                            <i class="ri-menu-line ri-lg"></i>
+                        </div>
+                    </button>
                 </div>
             </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> home
-                </a>
-                <a href="#about" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> about
-                </a>
-                <a href="#skills" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> skills
-                </a>
-                <a href="#projects" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> projects
-                </a>
-                <a href="#experience" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> experience
-                </a>
-                <a href="#blog" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> blog
-                </a>
-                <a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center">
-                    <span class="text-primary mr-1">~$</span> contact
-                </a>
-            </div>
-            
-            <button id="mobileMenuButton" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-300">
-                <i class="ri-menu-line ri-lg"></i>
-            </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-[rgba(12,12,12,0.95)] border-t border-[rgba(0,255,65,0.3)]">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-                <a href="#home" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> home
-                </a>
-                <a href="#about" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> about
-                </a>
-                <a href="#skills" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> skills
-                </a>
-                <a href="#projects" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> projects
-                </a>
-                <a href="#experience" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> experience
-                </a>
-                <a href="#blog" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> blog
-                </a>
-                <a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center py-2">
-                    <span class="text-primary mr-1">~$</span> contact
-                </a>
-                
-                <div class="flex justify-between items-center pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                    <div class="flex items-center space-x-2 text-xs text-gray-400">
-                        <span>CPU: 42%</span>
-                        <span>MEM: 68%</span>
-                        <span>NET: 87%</span>
-                    </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 border-t border-primary border-opacity-30">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-white hover:text-primary transition-colors">&lt;Home/&gt;</a>
+                    <a href="#about" class="nav-link text-white hover:text-primary transition-colors">&lt;About/&gt;</a>
+                    <a href="#skills" class="nav-link text-white hover:text-primary transition-colors">&lt;Skills/&gt;</a>
+                    <a href="#certifications" class="nav-link text-white hover:text-primary transition-colors">&lt;Certifications/&gt;</a>
+                    <a href="#contact" class="nav-link text-white hover:text-primary transition-colors">&lt;Contact/&gt;</a>
                 </div>
             </div>
         </div>
     </nav>
     
-    <!-- Home Section -->
-    <section id="home" class="min-h-screen pt-20 flex items-center relative overflow-hidden">
-        <div class="container mx-auto px-4 py-16 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="w-full md:w-1/2 mb-10 md:mb-0">
-                    <div class="terminal-window p-6 md:p-8">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">bhargava@secure-terminal:~</span>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <span class="text-primary mr-2">~$</span>
-                                <span class="typing-text text-xl md:text-2xl font-semibold" id="typingText">ACCESS GRANTED</span>
-                                <span class="typed-cursor">|</span>
-                            </div>
-                            
-                            <div class="text-gray-300 text-sm md:text-base mt-4">
-                                <p class="mb-3">Welcome to my secure terminal. I'm <span class="text-primary font-semibold">Bhargava G K</span>, a cybersecurity specialist focused on protecting digital assets and hunting vulnerabilities.</p>
-                                <p>Specializing in penetration testing, network security, and ethical hacking with a mission to make the digital world safer one vulnerability at a time.</p>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-4 mt-6">
-                                <div class="bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] p-3 rounded">
-                                    <div class="text-xs text-gray-400">THREATS NEUTRALIZED</div>
-                                    <div class="text-primary text-2xl font-bold">1,458</div>
-                                </div>
-                                
-                                <div class="bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] p-3 rounded">
-                                    <div class="text-xs text-gray-400">SYSTEMS SECURED</div>
-                                    <div class="text-primary text-2xl font-bold">237</div>
-                                </div>
-                                
-                                <div class="bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] p-3 rounded">
-                                    <div class="text-xs text-gray-400">CTF POINTS</div>
-                                    <div class="text-primary text-2xl font-bold">12,845</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex space-x-4 mt-8">
-                                <a href="#contact" class="bg-primary text-black px-6 py-3 rounded-button font-medium hover:bg-opacity-80 transition-all duration-300 whitespace-nowrap flex items-center">
-                                    <i class="ri-terminal-line mr-2"></i> Connect with me
-                                </a>
-                                <a href="#projects" class="bg-transparent border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition-all duration-300 whitespace-nowrap flex items-center">
-                                    <i class="ri-code-box-line mr-2"></i> View Projects
-                                </a>
-                            </div>
-                        </div>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div style="background-image: url('https://readdy.ai/api/search-image?query=cybersecurity%20hacker%20environment%20with%20digital%20network%2C%20matrix%20code%2C%20dark%20atmosphere%20with%20neon%20green%20and%20blue%20lights%2C%20high-tech%20cyberpunk%20aesthetic%2C%20abstract%20digital%20connections%20and%20binary%20code%20floating%20in%20background%2C%20professional%20dark%20setting&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;" class="absolute inset-0 z-0 opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-0"></div>
+        
+        <div class="container mx-auto px-6 z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="mb-4">
+                        <span class="text-xs text-primary command-prompt">Initializing security protocol...</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                        <span class="text-white glitch-effect">Bhargava G</span>
+                        <span class="text-primary">Kodawath</span>
+                    </h1>
+                    <div class="h-1 w-32 bg-primary mb-6"></div>
+                    <h2 class="text-xl md:text-2xl mb-6 terminal-text">Cybersecurity Professional</h2>
+                    <p class="text-gray-300 mb-8 max-w-lg">
+                        Specialized in identifying vulnerabilities, implementing robust security solutions, and protecting digital assets from evolving cyber threats. Committed to staying ahead of attackers through continuous learning and innovative defense strategies.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="btn-primary py-3 px-6 !rounded-button whitespace-nowrap">Get In Touch</a>
+                        <a href="#about" class="border border-primary text-primary py-3 px-6 !rounded-button hover:bg-primary hover:bg-opacity-10 transition-all whitespace-nowrap">Explore Profile</a>
                     </div>
                 </div>
                 
-                <div class="w-full md:w-1/2 flex justify-center">
-                    <div class="relative">
-                        <div class="w-[320px] h-[320px] md:w-[400px] md:h-[400px] rounded-full bg-[rgba(0,255,65,0.03)] border border-[rgba(0,255,65,0.1)] flex items-center justify-center">
-                            <div class="w-[240px] h-[240px] md:w-[300px] md:h-[300px] rounded-full bg-[rgba(0,255,65,0.05)] border border-[rgba(0,255,65,0.15)] flex items-center justify-center">
-                                <div class="w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-full bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.2)] flex items-center justify-center">
-                                    <div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-full bg-[rgba(0,255,65,0.2)] border border-[rgba(0,255,65,0.3)] flex items-center justify-center">
-                                        <i class="ri-shield-keyhole-line ri-3x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="terminal w-full max-w-lg">
+                        <div class="terminal-header">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <div class="terminal-title">bhargava@secure-terminal:~</div>
                         </div>
-                        
-                        <div class="absolute top-0 left-0 w-full h-full animate-spin-slow" style="animation: spin 20s linear infinite;">
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(0deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(45deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(90deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(135deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(180deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(225deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(270deg) translateY(-160px);"></div>
-                            <div class="absolute top-[50%] left-[50%] w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF41]" style="transform: translate(-50%, -50%) rotate(315deg) translateY(-160px);"></div>
+                        <div class="terminal-content">
+                            <p class="command-prompt mb-2">whoami</p>
+                            <p class="mb-4 text-gray-300">Cybersecurity Specialist with expertise in network security, penetration testing, and vulnerability assessment.</p>
+                            
+                            <p class="command-prompt mb-2">cat skills.txt</p>
+                            <p class="mb-4 text-gray-300">Network Security | Penetration Testing | Vulnerability Assessment | Security Auditing | Incident Response</p>
+                            
+                            <p class="command-prompt mb-2">./start_security_scan.sh</p>
+                            <p class="text-primary">Scanning for vulnerabilities... Securing perimeter... Establishing secure connection...</p>
                         </div>
                     </div>
                 </div>
@@ -568,109 +313,80 @@
     
     <!-- About Section -->
     <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> About Me <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">The human behind the terminal</p>
+        <div class="absolute inset-0 bg-black bg-opacity-80 z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-primary">Me</span></h2>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
             </div>
             
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6 h-full">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">user_profile.sh</span>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <div class="terminal-title">profile.md</div>
                         </div>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2">~$</span>
-                                <span class="text-gray-300">cat profile.json</span>
-                            </div>
+                        <div class="terminal-content">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Mission Statement</h3>
+                            <p class="mb-6 text-gray-300">
+                                Dedicated cybersecurity professional committed to protecting digital infrastructures against evolving threats. My approach combines technical expertise with strategic thinking to create robust security frameworks that safeguard critical assets.
+                            </p>
                             
-                            <div class="bg-[rgba(0,0,0,0.3)] p-4 rounded text-gray-300 text-sm font-mono">
-                                <pre class="whitespace-pre-wrap">{
-  "name": "Bhargava G K",
-  "title": "Cybersecurity Specialist",
-  "location": "Bangalore, India",
-  "education": [
-    {
-      "degree": "M.Tech in Cyber Security",
-      "institution": "National Institute of Technology",
-      "year": "2023"
-    },
-    {
-      "degree": "B.Tech in Computer Science",
-      "institution": "Visvesvaraya Technological University",
-      "year": "2021"
-    }
-  ],
-  "interests": [
-    "Penetration Testing",
-    "Vulnerability Research",
-    "Network Security",
-    "Digital Forensics",
-    "CTF Competitions",
-    "Open Source Security Tools"
-  ],
-  "languages": ["English", "Hindi", "Kannada"]
-}</pre>
-                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-primary">Professional Philosophy</h3>
+                            <p class="mb-6 text-gray-300">
+                                I believe security is not just about implementing tools but understanding the attacker's mindset. By continuously learning and adapting to new threat vectors, I stay one step ahead in the cybersecurity landscape.
+                            </p>
                             
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2">~$</span>
-                                <span class="text-gray-300">./get_personal_statement.sh</span>
-                            </div>
-                            
-                            <div class="text-gray-300 text-sm">
-                                <p class="mb-3">I'm a cybersecurity enthusiast with a passion for identifying and mitigating security vulnerabilities. My journey began during my undergraduate studies when I discovered the fascinating world of ethical hacking.</p>
-                                <p class="mb-3">Since then, I've dedicated my career to helping organizations strengthen their security posture through penetration testing, security assessments, and developing defensive strategies against emerging threats.</p>
-                                <p>When I'm not hunting bugs or securing networks, you'll find me participating in CTF competitions, contributing to open-source security tools, or mentoring aspiring cybersecurity professionals.</p>
-                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-primary">Current Focus</h3>
+                            <p class="text-gray-300">
+                                Currently exploring advanced threat detection systems and zero-trust architecture implementations to enhance organizational security postures against sophisticated cyber attacks.
+                            </p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6 h-full">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">timeline.sh</span>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="hexagon bg-black p-6 border border-primary">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="ri-shield-check-line ri-2x text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mb-2">Network Security</h3>
+                                <p class="text-sm text-gray-400">Implementing robust network defenses against unauthorized access</p>
+                            </div>
                         </div>
                         
-                        <div class="space-y-6 mt-4">
-                            <div class="timeline-item pl-8 pb-6">
-                                <div class="text-primary font-semibold">2023 - Present</div>
-                                <div class="text-white font-medium">Senior Security Analyst</div>
-                                <div class="text-gray-400">CyberDefend Solutions</div>
-                                <p class="text-gray-300 text-sm mt-2">Leading penetration testing engagements and security assessments for enterprise clients. Specializing in web application security and network infrastructure testing.</p>
+                        <div class="hexagon bg-black p-6 border border-primary">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="ri-bug-line ri-2x text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mb-2">Penetration Testing</h3>
+                                <p class="text-sm text-gray-400">Identifying vulnerabilities through simulated cyber attacks</p>
                             </div>
-                            
-                            <div class="timeline-item pl-8 pb-6">
-                                <div class="text-primary font-semibold">2021 - 2023</div>
-                                <div class="text-white font-medium">Security Researcher</div>
-                                <div class="text-gray-400">SecureNet Technologies</div>
-                                <p class="text-gray-300 text-sm mt-2">Conducted vulnerability research and developed exploit proof-of-concepts. Contributed to the company's threat intelligence platform.</p>
+                        </div>
+                        
+                        <div class="hexagon bg-black p-6 border border-primary">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="ri-fingerprint-line ri-2x text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mb-2">Security Auditing</h3>
+                                <p class="text-sm text-gray-400">Comprehensive assessment of security controls and policies</p>
                             </div>
-                            
-                            <div class="timeline-item pl-8 pb-6">
-                                <div class="text-primary font-semibold">2020 - 2021</div>
-                                <div class="text-white font-medium">Cybersecurity Intern</div>
-                                <div class="text-gray-400">ShadowFox Security</div>
-                                <p class="text-gray-300 text-sm mt-2">Assisted in security assessments and developed automated tools for vulnerability scanning. Participated in incident response drills.</p>
-                            </div>
-                            
-                            <div class="timeline-item pl-8">
-                                <div class="text-primary font-semibold">2019</div>
-                                <div class="text-white font-medium">CTF Team Lead</div>
-                                <div class="text-gray-400">University Cybersecurity Club</div>
-                                <p class="text-gray-300 text-sm mt-2">Led a team of 5 members to secure 2nd place in the National Collegiate Cyber Defense Competition.</p>
+                        </div>
+                        
+                        <div class="hexagon bg-black p-6 border border-primary">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="ri-alarm-warning-line ri-2x text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mb-2">Incident Response</h3>
+                                <p class="text-sm text-gray-400">Rapid containment and remediation of security breaches</p>
                             </div>
                         </div>
                     </div>
@@ -680,265 +396,144 @@
     </section>
     
     <!-- Skills Section -->
-    <section id="skills" class="py-20 relative bg-[rgba(0,0,0,0.3)]">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> Technical Arsenal <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">Tools and skills in my security toolkit</p>
+    <section id="skills" class="py-20 bg-black bg-opacity-90 relative">
+        <div style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20digital%20network%20connections%20with%20binary%20code%2C%20dark%20cybersecurity%20themed%20background%20with%20subtle%20green%20and%20blue%20neon%20accents%2C%20tech%20pattern%2C%20minimal%2C%20professional&width=1920&height=1080&seq=2&orientation=landscape'); background-size: cover; background-position: center;" class="absolute inset-0 z-0 opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical <span class="text-primary">Skills</span></h2>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Security Domains -->
-                <div class="terminal-window p-6">
-                    <div class="terminal-header mb-4">
-                        <div class="terminal-circle bg-red-500"></div>
-                        <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                        <div class="terminal-circle bg-green-500"></div>
-                        <span class="ml-4 text-gray-400 text-sm">security_domains.sh</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot bg-red-500"></div>
+                        <div class="terminal-dot bg-yellow-500"></div>
+                        <div class="terminal-dot bg-green-500"></div>
+                        <div class="terminal-title">security_expertise.sh</div>
                     </div>
                     
-                    <h3 class="text-xl font-semibold text-white mb-4">Security Domains</h3>
-                    
-                    <div class="space-y-4">
+                    <div class="space-y-6 mt-6">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Penetration Testing</span>
-                                <span class="text-primary">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Network Security</span>
-                                <span class="text-primary">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Web Application Security</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white">Network Security</span>
                                 <span class="text-primary">92%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 92%"></div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Malware Analysis</span>
-                                <span class="text-primary">85%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white">Penetration Testing</span>
+                                <span class="text-primary">88%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Digital Forensics</span>
-                                <span class="text-primary">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%"></div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Cloud Security</span>
-                                <span class="text-primary">78%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 78%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Security Tools -->
-                <div class="terminal-window p-6">
-                    <div class="terminal-header mb-4">
-                        <div class="terminal-circle bg-red-500"></div>
-                        <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                        <div class="terminal-circle bg-green-500"></div>
-                        <span class="ml-4 text-gray-400 text-sm">security_tools.sh</span>
-                    </div>
-                    
-                    <h3 class="text-xl font-semibold text-white mb-4">Security Tools</h3>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-radar-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Nmap</div>
-                                <div class="text-xs text-gray-400">Network Scanner</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-bug-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Metasploit</div>
-                                <div class="text-xs text-gray-400">Exploitation</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-wifi-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Wireshark</div>
-                                <div class="text-xs text-gray-400">Packet Analysis</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-shield-keyhole-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Burp Suite</div>
-                                <div class="text-xs text-gray-400">Web App Testing</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-lock-password-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Hashcat</div>
-                                <div class="text-xs text-gray-400">Password Cracking</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-spy-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">OWASP ZAP</div>
-                                <div class="text-xs text-gray-400">Vulnerability Scanner</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-file-search-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Volatility</div>
-                                <div class="text-xs text-gray-400">Memory Forensics</div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-[rgba(0,0,0,0.3)] p-3 rounded flex items-center">
-                            <div class="w-10 h-10 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-3">
-                                <i class="ri-terminal-box-line text-primary"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Kali Linux</div>
-                                <div class="text-xs text-gray-400">Security OS</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Programming & Scripting -->
-                <div class="terminal-window p-6">
-                    <div class="terminal-header mb-4">
-                        <div class="terminal-circle bg-red-500"></div>
-                        <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                        <div class="terminal-circle bg-green-500"></div>
-                        <span class="ml-4 text-gray-400 text-sm">programming.sh</span>
-                    </div>
-                    
-                    <h3 class="text-xl font-semibold text-white mb-4">Programming & Scripting</h3>
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Python</span>
-                                <span class="text-primary">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">Bash Scripting</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white">Vulnerability Assessment</span>
                                 <span class="text-primary">90%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">SQL</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white">Incident Response</span>
                                 <span class="text-primary">85%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
                         
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">JavaScript</span>
-                                <span class="text-primary">80%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white">Security Auditing</span>
+                                <span class="text-primary">87%</span>
                             </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">C/C++</span>
-                                <span class="text-primary">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-300">PowerShell</span>
-                                <span class="text-primary">70%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 70%"></div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%"></div>
                             </div>
                         </div>
                     </div>
+                </div>
+                
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot bg-red-500"></div>
+                        <div class="terminal-dot bg-yellow-500"></div>
+                        <div class="terminal-dot bg-green-500"></div>
+                        <div class="terminal-title">tech_stack.json</div>
+                    </div>
                     
-                    <div class="mt-6">
-                        <h4 class="text-white font-medium mb-3">Certifications</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">CEH v11</span>
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">OSCP</span>
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">CompTIA Security+</span>
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">AWS Security Specialist</span>
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">GIAC GPEN</span>
+                    <div class="grid grid-cols-2 gap-6 mt-6">
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-shield-keyhole-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">Firewall Systems</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Cisco, Palo Alto, pfSense</p>
+                        </div>
+                        
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-spy-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">Threat Intelligence</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">MISP, ThreatConnect</p>
+                        </div>
+                        
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-terminal-box-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">Penetration Tools</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Metasploit, Burp Suite, Nmap</p>
+                        </div>
+                        
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-code-s-slash-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">Scripting</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Python, Bash, PowerShell</p>
+                        </div>
+                        
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-eye-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">SIEM Solutions</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Splunk, ELK Stack, QRadar</p>
+                        </div>
+                        
+                        <div class="bg-black bg-opacity-60 p-4 border border-primary border-opacity-30 !rounded-button">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                    <i class="ri-cloud-line text-primary"></i>
+                                </div>
+                                <h3 class="font-bold">Cloud Security</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">AWS, Azure, GCP</p>
                         </div>
                     </div>
                 </div>
@@ -946,740 +541,203 @@
         </div>
     </section>
     
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 relative">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> Security Projects <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">A showcase of my cybersecurity work</p>
+    <!-- Live Security Dashboard -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Security <span class="text-primary">Dashboard</span></h2>
+                <div class="h-1 w-24 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Real-time visualization of network security metrics and threat intelligence data</p>
             </div>
             
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex bg-[rgba(0,0,0,0.3)] p-1 rounded-full">
-                    <button class="project-filter-btn active px-4 py-2 rounded-full text-primary bg-[rgba(0,255,65,0.1)]" data-filter="all">All Projects</button>
-                    <button class="project-filter-btn px-4 py-2 rounded-full text-gray-300 hover:text-primary" data-filter="tools">Security Tools</button>
-                    <button class="project-filter-btn px-4 py-2 rounded-full text-gray-300 hover:text-primary" data-filter="ctf">CTF Writeups</button>
-                    <button class="project-filter-btn px-4 py-2 rounded-full text-gray-300 hover:text-primary" data-filter="research">Research</button>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="tools">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-shield-keyhole-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">Security Tool</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">VulnHunter Scanner</h3>
-                        <p class="text-gray-300 text-sm mb-4">An automated vulnerability scanner with custom exploit modules for web applications. Built with Python and leveraging multiple security APIs.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Flask</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">OWASP</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-github-fill mr-1"></i> View Code
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-external-link-line mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
+            <div class="terminal p-0 overflow-hidden">
+                <div class="terminal-header p-4">
+                    <div class="terminal-dot bg-red-500"></div>
+                    <div class="terminal-dot bg-yellow-500"></div>
+                    <div class="terminal-dot bg-green-500"></div>
+                    <div class="terminal-title">security_dashboard.exe</div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="research">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-file-search-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">Research</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">Zero-Day Vulnerability Research</h3>
-                        <p class="text-gray-300 text-sm mb-4">Discovered and responsibly disclosed a critical authentication bypass vulnerability in a popular open-source CMS platform.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">CVE-2024-1234</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Authentication</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">PHP</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-file-paper-2-line mr-1"></i> Read Paper
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-github-fill mr-1"></i> PoC Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="ctf">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-flag-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">CTF Writeup</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">HackTheBox: Obscurity</h3>
-                        <p class="text-gray-300 text-sm mb-4">Detailed walkthrough of solving the "Obscurity" challenge on HackTheBox, focusing on Python code injection and privilege escalation techniques.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Code Injection</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Privilege Escalation</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Linux</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-file-text-line mr-1"></i> Read Writeup
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-video-line mr-1"></i> Video Walkthrough
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="tools">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-wifi-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">Security Tool</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">NetSentry IDS</h3>
-                        <p class="text-gray-300 text-sm mb-4">A lightweight intrusion detection system that uses machine learning to identify anomalous network traffic patterns in real-time.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Python</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">TensorFlow</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Network Security</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-github-fill mr-1"></i> View Code
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-file-paper-2-line mr-1"></i> Documentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="research">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-lock-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">Research</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">Secure Authentication Framework</h3>
-                        <p class="text-gray-300 text-sm mb-4">Developed a multi-factor authentication framework with biometric integration for high-security environments.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Authentication</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Biometrics</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Java</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-github-fill mr-1"></i> View Code
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-presentation-line mr-1"></i> Presentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 6 -->
-                <div class="glass-card rounded-lg overflow-hidden project-item" data-category="ctf">
-                    <div class="h-48 bg-[rgba(0,0,0,0.5)] relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="ri-bug-line ri-3x text-primary"></i>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-[rgba(0,0,0,0.7)] text-primary text-xs px-2 py-1 rounded">CTF Writeup</div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-white mb-2">DEFCON CTF: Binary Exploitation</h3>
-                        <p class="text-gray-300 text-sm mb-4">Detailed solution for a complex binary exploitation challenge from DEFCON CTF, involving ROP chains and format string vulnerabilities.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">Binary Exploitation</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">ROP</span>
-                            <span class="bg-[rgba(0,0,0,0.3)] text-gray-400 text-xs px-2 py-1 rounded">C/C++</span>
-                        </div>
-                        
-                        <div class="flex justify-between">
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-file-text-line mr-1"></i> Read Writeup
-                            </a>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                <i class="ri-github-fill mr-1"></i> Exploit Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="bg-transparent border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition-all duration-300 whitespace-nowrap inline-flex items-center">
-                    <i class="ri-github-fill mr-2"></i> View More on GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 relative bg-[rgba(0,0,0,0.3)]">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> Experience & Certifications <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">Professional journey and credentials</p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">work_experience.sh</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-6">Professional Experience</h3>
-                        
-                        <div class="space-y-8">
-                            <div class="glass-card p-4 rounded-lg">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-white font-medium">Senior Security Analyst</h4>
-                                        <p class="text-primary text-sm">CyberDefend Solutions</p>
-                                    </div>
-                                    <div class="text-gray-400 text-sm">2023 - Present</div>
-                                </div>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-300">
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Led 15+ penetration testing engagements for Fortune 500 clients</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Developed custom security assessment methodologies for cloud environments</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Mentored junior security analysts and conducted internal training</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-white font-medium">Security Researcher</h4>
-                                        <p class="text-primary text-sm">SecureNet Technologies</p>
-                                    </div>
-                                    <div class="text-gray-400 text-sm">2021 - 2023</div>
-                                </div>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-300">
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Discovered and reported 20+ zero-day vulnerabilities in enterprise applications</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Developed automated tools for vulnerability detection and exploitation</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Contributed to the company's threat intelligence platform</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-white font-medium">Cybersecurity Intern</h4>
-                                        <p class="text-primary text-sm">ShadowFox Security</p>
-                                    </div>
-                                    <div class="text-gray-400 text-sm">2020 - 2021</div>
-                                </div>
-                                <ul class="mt-3 space-y-2 text-sm text-gray-300">
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Assisted senior security analysts in penetration testing engagements</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Developed a Python-based tool for automating security scans</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
-                                        <span>Participated in incident response drills and security awareness training</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">certifications.sh</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-6">Certifications & Achievements</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-verified-badge-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">Offensive Security Certified Professional (OSCP)</h4>
-                                    <p class="text-gray-400 text-sm">Offensive Security | 2022</p>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-verified-badge-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">Certified Ethical Hacker (CEH)</h4>
-                                    <p class="text-gray-400 text-sm">EC-Council | 2021</p>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-verified-badge-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">CompTIA Security+</h4>
-                                    <p class="text-gray-400 text-sm">CompTIA | 2020</p>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-verified-badge-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">AWS Certified Security Specialist</h4>
-                                    <p class="text-gray-400 text-sm">Amazon Web Services | 2022</p>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-trophy-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">2nd Place - National Cyber Defense Competition</h4>
-                                    <p class="text-gray-400 text-sm">CyberSec Alliance | 2021</p>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card p-4 rounded-lg flex items-center">
-                                <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                    <i class="ri-bug-line text-primary ri-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">Bug Bounty Hall of Fame</h4>
-                                    <p class="text-gray-400 text-sm">HackerOne & Bugcrowd | 2022-2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+                    <div class="h-80 bg-black bg-opacity-60 !rounded-button" id="threat-chart"></div>
+                    <div class="h-80 bg-black bg-opacity-60 !rounded-button" id="security-chart"></div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 relative">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> Security Logs <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">Insights, tutorials, and threat reports</p>
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-black bg-opacity-90 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional <span class="text-primary">Certifications</span></h2>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
             </div>
             
-            <div class="terminal-window p-6 mb-8">
-                <div class="terminal-header mb-4">
-                    <div class="terminal-circle bg-red-500"></div>
-                    <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                    <div class="terminal-circle bg-green-500"></div>
-                    <span class="ml-4 text-gray-400 text-sm">search_logs.sh</span>
-                </div>
-                
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="relative flex-grow">
-                        <input type="text" placeholder="Search security logs..." class="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg pl-10">
-                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                            <i class="ri-search-line"></i>
-                        </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="terminal mb-8">
+                    <div class="terminal-header">
+                        <div class="terminal-dot bg-red-500"></div>
+                        <div class="terminal-dot bg-yellow-500"></div>
+                        <div class="terminal-dot bg-green-500"></div>
+                        <div class="terminal-title">certifications.log</div>
                     </div>
                     
-                    <div class="flex gap-2">
-                        <div class="relative">
-                            <button class="flex items-center justify-between bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg w-40 whitespace-nowrap">
-                                <span>All Categories</span>
-                                <i class="ri-arrow-down-s-line"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="relative">
-                            <button class="flex items-center justify-between bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg w-40 whitespace-nowrap">
-                                <span>Latest First</span>
-                                <i class="ri-arrow-down-s-line"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <div class="glass-card rounded-lg overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Tutorial</span>
-                            <span class="text-gray-400 text-sm">2025-04-02</span>
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-6 border-b border-gray-800">
+                            <div class="flex items-center mb-4 md:mb-0">
+                                <div class="w-12 h-12 flex items-center justify-center mr-4 bg-primary bg-opacity-10 rounded-full">
+                                    <i class="ri-award-line text-primary ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Introduction to Cyber Security</h3>
+                                    <p class="text-gray-400">Cisco</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-primary font-bold mb-2">Completed</span>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-gray-400 mr-2">Verification:</span>
+                                    <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs !rounded-button">Authenticated</span>
+                                </div>
+                            </div>
                         </div>
                         
-                        <h3 class="text-xl font-semibold text-white mb-3">Bypassing Modern WAF Implementations</h3>
-                        <p class="text-gray-300 text-sm mb-4">A deep dive into techniques for bypassing modern Web Application Firewalls, with practical examples and countermeasures.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 12 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 2 -->
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Threat Report</span>
-                            <span class="text-gray-400 text-sm">2025-03-18</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">Analysis of the ShadowBlade Ransomware</h3>
-                        <p class="text-gray-300 text-sm mb-4">Technical breakdown of the emerging ShadowBlade ransomware strain, including IOCs, infection vectors, and mitigation strategies.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 15 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
+                        <div class="p-4 bg-black bg-opacity-50 !rounded-button border border-primary border-opacity-20">
+                            <h4 class="text-lg font-bold mb-2">Certificate Details</h4>
+                            <p class="text-gray-300 mb-4">
+                                Certificate of completion covering basic security concepts, attack types, and defense strategies. This certification provides a comprehensive foundation in cybersecurity principles and practices.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs !rounded-button">Security Fundamentals</span>
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs !rounded-button">Threat Analysis</span>
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs !rounded-button">Defense Strategies</span>
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs !rounded-button">Risk Management</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Blog Post 3 -->
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Guide</span>
-                            <span class="text-gray-400 text-sm">2025-02-25</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">Building a Home Security Lab</h3>
-                        <p class="text-gray-300 text-sm mb-4">Step-by-step guide to setting up a comprehensive cybersecurity lab environment at home using open-source tools and virtualization.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 18 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 4 -->
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Research</span>
-                            <span class="text-gray-400 text-sm">2025-02-10</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">Exploiting JWT Authentication Flaws</h3>
-                        <p class="text-gray-300 text-sm mb-4">In-depth analysis of common JWT implementation vulnerabilities and how to exploit them, with recommendations for secure implementation.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 14 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 5 -->
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Tutorial</span>
-                            <span class="text-gray-400 text-sm">2025-01-28</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">Advanced OSINT Techniques for Security Professionals</h3>
-                        <p class="text-gray-300 text-sm mb-4">Exploring advanced open-source intelligence gathering techniques for security assessments and threat hunting.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 16 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 6 -->
-                <div class="glass-card rounded-lg overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-[rgba(0,255,65,0.1)] text-primary text-xs px-3 py-1 rounded-full border border-[rgba(0,255,65,0.3)]">Opinion</span>
-                            <span class="text-gray-400 text-sm">2025-01-15</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">The Future of AI in Cybersecurity: Friend or Foe?</h3>
-                        <p class="text-gray-300 text-sm mb-4">Examining the dual-edged nature of AI in cybersecurity, from automated defense systems to AI-powered attacks.</p>
-                        
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-400 text-xs flex items-center">
-                                <i class="ri-time-line mr-1"></i> 10 min read
-                            </span>
-                            <a href="#" class="text-primary hover:text-opacity-80 flex items-center text-sm">
-                                Read More <i class="ri-arrow-right-line ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="bg-transparent border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition-all duration-300 whitespace-nowrap inline-flex items-center">
-                    <i class="ri-article-line mr-2"></i> View All Posts
-                </a>
             </div>
         </div>
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative bg-[rgba(0,0,0,0.3)]">
-        <div class="container mx-auto px-4">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold mb-2">
-                    <span class="text-primary">&lt;</span> Establish Connection <span class="text-primary">/&gt;</span>
-                </h2>
-                <p class="text-gray-400">Reach out for collaborations or inquiries</p>
+    <section id="contact" class="py-20 relative">
+        <div style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20digital%20circuit%20board%20pattern%2C%20cybersecurity%20themed%20background%20with%20subtle%20green%20and%20blue%20neon%20accents%20on%20black%2C%20minimal%2C%20professional%2C%20tech%20pattern&width=1920&height=1080&seq=3&orientation=landscape'); background-size: cover; background-position: center;" class="absolute inset-0 z-0 opacity-20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Secure <span class="text-primary">Contact</span></h2>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
             </div>
             
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6 h-full">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">contact_form.sh</span>
+            <div class="flex flex-col md:flex-row gap-12 max-w-6xl mx-auto">
+                <div class="md:w-1/2">
+                    <div class="terminal h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <div class="terminal-title">contact_info.txt</div>
                         </div>
                         
-                        <form class="space-y-6">
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2 mt-3">~$</span>
-                                <div class="flex-grow">
-                                    <label for="name" class="block text-gray-300 text-sm mb-2">Name:</label>
-                                    <input type="text" id="name" class="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg focus:border-primary">
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2 mt-3">~$</span>
-                                <div class="flex-grow">
-                                    <label for="email" class="block text-gray-300 text-sm mb-2">Email:</label>
-                                    <input type="email" id="email" class="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg focus:border-primary">
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2 mt-3">~$</span>
-                                <div class="flex-grow">
-                                    <label for="subject" class="block text-gray-300 text-sm mb-2">Subject:</label>
-                                    <input type="text" id="subject" class="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg focus:border-primary">
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2 mt-3">~$</span>
-                                <div class="flex-grow">
-                                    <label for="message" class="block text-gray-300 text-sm mb-2">Message:</label>
-                                    <textarea id="message" rows="5" class="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(0,255,65,0.3)] text-gray-300 px-4 py-3 rounded-lg focus:border-primary"></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2">~$</span>
-                                <div class="flex-grow">
+                        <div class="space-y-8 mt-6">
+                            <div>
+                                <h3 class="text-xl font-bold mb-4 text-primary command-prompt">Contact Information</h3>
+                                <p class="text-gray-300 mb-6">
+                                    Feel free to reach out for collaborations, security consultations, or to discuss potential projects. I'm always open to connecting with fellow security professionals.
+                                </p>
+                                
+                                <div class="space-y-4">
                                     <div class="flex items-center">
-                                        <input type="checkbox" id="security" class="custom-checkbox mr-3">
-                                        <label for="security" class="text-gray-300 text-sm">I'm not a malicious script trying to exploit this form</label>
+                                        <div class="w-10 h-10 flex items-center justify-center mr-4 bg-primary bg-opacity-10 !rounded-button">
+                                            <i class="ri-mail-line text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-400">Email</p>
+                                            <p class="text-white">bhargavagk2@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center mr-4 bg-primary bg-opacity-10 !rounded-button">
+                                            <i class="ri-phone-line text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-400">Phone</p>
+                                            <p class="text-white">+91 8123240315</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex items-center justify-center mr-4 bg-primary bg-opacity-10 !rounded-button">
+                                            <i class="ri-github-line text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-400">GitHub</p>
+                                            <a href="https://github.com/barghava" target="_blank" class="text-white hover:text-primary transition-colors">github.com/barghava</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2">~$</span>
-                                <button type="submit" class="bg-primary text-black px-6 py-3 rounded-button font-medium hover:bg-opacity-80 transition-all duration-300 whitespace-nowrap flex items-center">
-                                    <i class="ri-send-plane-line mr-2"></i> Send Message
-                                </button>
+                            <div>
+                                <h3 class="text-xl font-bold mb-4 text-primary command-prompt">Availability</h3>
+                                <p class="text-gray-300">
+                                    Currently available for security consulting, vulnerability assessments, and penetration testing projects. Response time is typically within 24-48 hours.
+                                </p>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="w-full md:w-1/2">
-                    <div class="terminal-window p-6 h-full">
-                        <div class="terminal-header mb-4">
-                            <div class="terminal-circle bg-red-500"></div>
-                            <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                            <div class="terminal-circle bg-green-500"></div>
-                            <span class="ml-4 text-gray-400 text-sm">contact_info.sh</span>
+                <div class="md:w-1/2">
+                    <div class="terminal h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                            <div class="terminal-title">secure_message.sh</div>
                         </div>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <span class="text-primary mr-2">~$</span>
-                                <span class="text-gray-300">cat contact_details.txt</span>
+                        <form class="space-y-6 mt-6">
+                            <div>
+                                <label for="name" class="block text-gray-400 mb-2 text-sm">Name</label>
+                                <input type="text" id="name" class="w-full bg-black bg-opacity-60 border border-gray-700 !rounded-button py-3 px-4 text-white focus:border-primary focus:outline-none form-input" placeholder="Enter your name">
                             </div>
                             
-                            <div class="space-y-6 pl-6">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                        <i class="ri-mail-line text-primary ri-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium">Email</h4>
-                                        <a href="mailto:bhargava@securityexpert.com" class="text-primary hover:text-opacity-80">bhargava@securityexpert.com</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                        <i class="ri-map-pin-line text-primary ri-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium">Location</h4>
-                                        <p class="text-gray-300">Bangalore, India</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 flex items-center justify-center bg-[rgba(0,255,65,0.1)] rounded-full mr-4">
-                                        <i class="ri-time-line text-primary ri-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium">Response Time</h4>
-                                        <p class="text-gray-300">Usually within 24 hours</p>
-                                    </div>
-                                </div>
+                            <div>
+                                <label for="email" class="block text-gray-400 mb-2 text-sm">Email</label>
+                                <input type="email" id="email" class="w-full bg-black bg-opacity-60 border border-gray-700 !rounded-button py-3 px-4 text-white focus:border-primary focus:outline-none form-input" placeholder="Enter your email">
                             </div>
                             
-                            <div class="flex items-start mt-8">
-                                <span class="text-primary mr-2">~$</span>
-                                <span class="text-gray-300">ls -la social_profiles/</span>
+                            <div>
+                                <label for="subject" class="block text-gray-400 mb-2 text-sm">Subject</label>
+                                <input type="text" id="subject" class="w-full bg-black bg-opacity-60 border border-gray-700 !rounded-button py-3 px-4 text-white focus:border-primary focus:outline-none form-input" placeholder="Enter message subject">
                             </div>
                             
-                            <div class="flex flex-wrap gap-4 pl-6">
-                                <a href="#" class="flex items-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] px-4 py-3 rounded-lg transition-all duration-300">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3">
-                                        <i class="ri-github-fill text-white ri-lg"></i>
-                                    </div>
-                                    <span class="text-white"> <a href="https://github.com/barghava/gk-16" class="button" target="_blank">Go to GitHub GitHub</a></span>
-                                </a>
-                                
-                                <a href="#" class="flex items-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] px-4 py-3 rounded-lg transition-all duration-300">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3">
-                                        <i class="ri-linkedin-fill text-white ri-lg"></i>
-                                    </div>
-                                    <span class="text-white">LinkedIn</span>
-                                </a>
-                                
-                                <a href="#" class="flex items-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] px-4 py-3 rounded-lg transition-all duration-300">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3">
-                                        <i class="ri-twitter-x-fill text-white ri-lg"></i>
-                                    </div>
-                                    <span class="text-white">Twitter</span>
-                                </a>
-                                
-                                <a href="#" class="flex items-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] px-4 py-3 rounded-lg transition-all duration-300">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3">
-                                        <i class="ri-medium-fill text-white ri-lg"></i>
-                                    </div>
-                                    <span class="text-white">Medium</span>
-                                </a>
+                            <div>
+                                <label for="message" class="block text-gray-400 mb-2 text-sm">Message</label>
+                                <textarea id="message" rows="5" class="w-full bg-black bg-opacity-60 border border-gray-700 !rounded-button py-3 px-4 text-white focus:border-primary focus:outline-none form-input" placeholder="Enter your message"></textarea>
                             </div>
                             
-                            <div class="mt-8 bg-[rgba(0,0,0,0.3)] p-4 rounded-lg border border-[rgba(255,0,0,0.3)] text-gray-300">
-                                <div class="flex items-center mb-2">
-                                    <i class="ri-shield-flash-line text-red-500 mr-2"></i>
-                                    <span class="text-red-500 font-medium">Security Notice</span>
-                                </div>
-                                <p class="text-sm">All communications are encrypted using PGP. For sensitive information, please use my public key available on my GitHub profile.</p>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="encryption" class="hidden">
+                                <label for="encryption" class="flex items-center cursor-pointer">
+                                    <div class="w-5 h-5 border border-gray-600 !rounded-button mr-3 flex items-center justify-center encryption-checkbox">
+                                        <i class="ri-check-line text-primary hidden"></i>
+                                    </div>
+                                    <span class="text-gray-300">Enable end-to-end encryption</span>
+                                </label>
                             </div>
-                        </div>
+                            
+                            <button type="submit" class="btn-primary py-3 px-6 w-full !rounded-button whitespace-nowrap">
+                                <span class="flex items-center justify-center">
+                                    <i class="ri-lock-line mr-2"></i>
+                                    Send Secure Message
+                                </span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1687,334 +745,332 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-8 bg-[rgba(0,0,0,0.5)] border-t border-[rgba(0,255,65,0.1)]">
-        <div class="container mx-auto px-4">
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <a href="#home" class="text-primary font-['Pacifico'] text-2xl">logo</a>
-                    <p class="text-gray-400 text-sm mt-2">CYBER SECURITY</p>
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-primary font-['Pacifico'] text-2xl">B<span class="text-white">GK</span></a>
+                    <p class="text-gray-400 mt-2">Cybersecurity Professional</p>
                 </div>
                 
-                <div class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
-                    <a href="#home" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a>
-                    <a href="#about" class="text-gray-300 hover:text-primary transition-colors duration-300">About</a>
-                    <a href="#skills" class="text-gray-300 hover:text-primary transition-colors duration-300">Skills</a>
-                    <a href="#projects" class="text-gray-300 hover:text-primary transition-colors duration-300">Projects</a>
-                    <a href="#experience" class="text-gray-300 hover:text-primary transition-colors duration-300">Experience</a>
-                    <a href="#blog" class="text-gray-300 hover:text-primary transition-colors duration-300">Blog</a>
-                    <a href="#contact" class="text-gray-300 hover:text-primary transition-colors duration-300">Contact</a>
-                </div>
-                
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full transition-all duration-300">
-                        <i class="ri-github-fill text-white"></i>
+                <div class="flex space-x-6">
+                    <a href="mailto:bhargavagk2@gmail.com" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+                        <i class="ri-mail-line text-primary"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full transition-all duration-300">
-                        <i class="ri-linkedin-fill text-white"></i>
+                    <a href="https://github.com/barghava" target="_blank" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+                        <i class="ri-github-line text-primary"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full transition-all duration-300">
-                        <i class="ri-twitter-x-fill text-white"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full transition-all duration-300">
-                        <i class="ri-medium-fill text-white"></i>
+                    <a href="tel:+918123240315" class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full hover:bg-opacity-20 transition-all">
+                        <i class="ri-phone-line text-primary"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="mt-8 pt-6 border-t border-[rgba(255,255,255,0.1)] flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Bhargava G K. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Bhargava G Kodawath. All rights reserved.</p>
                 
-                <div class="flex gap-4 text-gray-400 text-sm">
-                    <a href="#" class="hover:text-primary transition-colors duration-300">Privacy Policy</a>
-                    <span>|</span>
-                    <a href="#" class="hover:text-primary transition-colors duration-300">Terms of Service</a>
+                <div class="flex space-x-8">
+                    <a href="#home" class="text-gray-400 hover:text-primary text-sm transition-colors">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-primary text-sm transition-colors">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-primary text-sm transition-colors">Skills</a>
+                    <a href="#certifications" class="text-gray-400 hover:text-primary text-sm transition-colors">Certifications</a>
+                    <a href="#contact" class="text-gray-400 hover:text-primary text-sm transition-colors">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
     
-    <!-- Hidden Terminal (Easter Egg) -->
-    <div id="hiddenTerminal" class="fixed bottom-0 right-0 w-full md:w-1/2 h-0 overflow-hidden bg-[rgba(0,0,0,0.95)] z-50 transition-all duration-500">
-        <div class="terminal-header p-3 flex justify-between items-center border-b border-[rgba(0,255,65,0.3)]">
-            <div class="flex items-center">
-                <div class="terminal-circle bg-red-500"></div>
-                <div class="terminal-circle bg-yellow-500 mx-2"></div>
-                <div class="terminal-circle bg-green-500"></div>
-                <span class="ml-4 text-gray-400 text-sm">secret_terminal.sh</span>
-            </div>
-            <button id="closeTerminal" class="text-gray-400 hover:text-white">
-                <i class="ri-close-line"></i>
-            </button>
-        </div>
-        
-        <div class="p-4 h-full overflow-y-auto terminal-content">
-            <div class="mb-4">
-                <span class="text-primary">root@secure-system:~#</span> <span class="text-white">Access granted to hidden terminal</span>
-            </div>
-            <div class="mb-4">
-                <span class="text-primary">root@secure-system:~#</span> <span class="text-white">Type 'help' for available commands</span>
-            </div>
-            <div id="terminalOutput"></div>
-            <div class="flex items-center">
-                <span class="text-primary mr-2">root@secure-system:~#</span>
-                <input type="text" id="terminalInput" class="bg-transparent border-none text-white focus:outline-none flex-grow" autofocus>
-            </div>
-        </div>
-    </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-black !rounded-full flex items-center justify-center opacity-0 invisible transition-all z-50">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
     <script>
-        // Matrix Background Effect
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789';
-        const columns = canvas.width / 20;
-        const drops = [];
-        
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-        
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(12, 12, 12, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-            ctx.fillStyle = '#00FF41';
-            ctx.font = '15px monospace';
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
             
-            for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * 20, drops[i] * 20);
+            // Matrix Rain Effect
+            const matrixBg = document.getElementById('matrix-bg');
+            
+            function createMatrixRain() {
+                const characters = '01';
+                const rainDrops = 50;
                 
-                if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                
-                drops[i]++;
-            }
-        }
-        
-        setInterval(drawMatrix, 50);
-        
-        // Typing Animation
-        const typingText = document.getElementById('typingText');
-        const text = "ACCESS GRANTED";
-        let index = 0;
-        
-        function typeText() {
-            if (index < text.length) {
-                typingText.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeText, 100);
-            } else {
-                setTimeout(() => {
-                    typingText.textContent = "";
-                    index = 0;
-                    typeText();
-                }, 3000);
-            }
-        }
-        
-        typeText();
-        
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Project Filtering
-        const filterButtons = document.querySelectorAll('.project-filter-btn');
-        const projectItems = document.querySelectorAll('.project-item');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'bg-[rgba(0,255,65,0.1)]', 'text-primary');
-                    btn.classList.add('text-gray-300');
-                });
-                
-                // Add active class to clicked button
-                button.classList.add('active', 'bg-[rgba(0,255,65,0.1)]', 'text-primary');
-                button.classList.remove('text-gray-300');
-                
-                const filter = button.getAttribute('data-filter');
-                
-                projectItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Hidden Terminal Functionality
-        const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === konami[konamiIndex]) {
-                konamiIndex++;
-                
-                if (konamiIndex === konami.length) {
-                    openTerminal();
-                    konamiIndex = 0;
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
-        
-        const hiddenTerminal = document.getElementById('hiddenTerminal');
-        const closeTerminal = document.getElementById('closeTerminal');
-        const terminalInput = document.getElementById('terminalInput');
-        const terminalOutput = document.getElementById('terminalOutput');
-        
-        function openTerminal() {
-            hiddenTerminal.style.height = '400px';
-            setTimeout(() => {
-                terminalInput.focus();
-            }, 500);
-        }
-        
-        closeTerminal.addEventListener('click', () => {
-            hiddenTerminal.style.height = '0';
-        });
-        
-        terminalInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const command = terminalInput.value.trim();
-                
-                const commandLine = document.createElement('div');
-                commandLine.innerHTML = `<span class="text-primary">root@secure-system:~#</span> <span class="text-white">${command}</span>`;
-                terminalOutput.appendChild(commandLine);
-                
-                let response = '';
-                
-                switch (command.toLowerCase()) {
-                    case 'help':
-                        response = `
-                            <div class="pl-4 mt-2 mb-4">
-                                <div class="text-gray-300">Available commands:</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">help</span>: Show this help message</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">about</span>: Display information about me</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">skills</span>: List my technical skills</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">contact</span>: Show contact information</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">clear</span>: Clear the terminal</div>
-                                <div class="text-gray-300 pl-4">- <span class="text-primary">exit</span>: Close the terminal</div>
-                            </div>
-                        `;
-                        break;
-                    case 'about':
-                        response = `
-                            <div class="pl-4 mt-2 mb-4">
-                                <div class="text-gray-300">Bhargava G K - Cybersecurity Specialist</div>
-                                <div class="text-gray-300 mt-2">Passionate about identifying and mitigating security vulnerabilities. Specialized in penetration testing, network security, and ethical hacking.</div>
-                            </div>
-                        `;
-                        break;
-                    case 'skills':
-                        response = `
-                            <div class="pl-4 mt-2 mb-4">
-                                <div class="text-gray-300">Technical Skills:</div>
-                                <div class="text-gray-300 pl-4">- Penetration Testing</div>
-                                <div class="text-gray-300 pl-4">- Network Security</div>
-                                <div class="text-gray-300 pl-4">- Web Application Security</div>
-                                <div class="text-gray-300 pl-4">- Malware Analysis</div>
-                                <div class="text-gray-300 pl-4">- Digital Forensics</div>
-                                <div class="text-gray-300 pl-4">- Python, Bash, C/C++</div>
-                            </div>
-                        `;
-                        break;
-                    case 'contact':
-                        response = `
-                            <div class="pl-4 mt-2 mb-4">
-                                <div class="text-gray-300">Contact Information:</div>
-                                <div class="text-gray-300 pl-4">- Email: bhargavagk2@gmail.com.com</div>
-                                <div class="text-gray-300 pl-4">- Ph.No: 8123240315</div>
-                                <div class="text-gray-300 pl-4">- Location: Bangalore, India</div>
-                                <div class="text-gray-300 pl-4">- GitHub: https://github.com/barghava</div>
-                                <div class="text-gray-300 pl-4">- LinkedIn: www.linkedin.com/in/bhargava-gk-367052286</div>
-                            </div>
-                        `;
-                        break;
-                    case 'clear':
-                        terminalOutput.innerHTML = '';
-                        break;
-                    case 'exit':
-                        hiddenTerminal.style.height = '0';
-                        break;
-                    default:
-                        response = `<div class="pl-4 mt-2 mb-4 text-red-500">Command not found: ${command}. Type 'help' for available commands.</div>`;
-                }
-                
-                if (command.toLowerCase() !== 'clear') {
-                    const responseElement = document.createElement('div');
-                    responseElement.innerHTML = response;
-                    terminalOutput.appendChild(responseElement);
-                }
-                
-                terminalInput.value = '';
-                
-                // Scroll to bottom
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }
-        });
-        
-        // Animate progress bars on scroll
-        const progressBars = document.querySelectorAll('.progress-fill');
-        
-        function animateProgressBars() {
-            progressBars.forEach(bar => {
-                const rect = bar.getBoundingClientRect();
-                const isVisible = (rect.top <= window.innerHeight * 0.8);
-                
-                if (isVisible) {
-                    const width = bar.parentElement.previousElementSibling.querySelector('.text-primary').textContent;
-                    bar.style.width = width;
-                } else {
-                    bar.style.width = '0';
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', animateProgressBars);
-        window.addEventListener('load', animateProgressBars);
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                for (let i = 0; i < rainDrops; i++) {
+                    const drop = document.createElement('div');
+                    drop.className = 'matrix-rain';
+                    drop.style.left = `${Math.random() * 100}%`;
+                    drop.style.animationDuration = `${15 + Math.random() * 10}s`;
+                    drop.style.opacity = `${0.1 + Math.random() * 0.5}`;
                     
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    let text = '';
+                    for (let j = 0; j < 5; j++) {
+                        text += characters.charAt(Math.floor(Math.random() * characters.length));
                     }
+                    drop.innerText = text;
+                    
+                    matrixBg.appendChild(drop);
+                }
+            }
+            
+            createMatrixRain();
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
                 }
             });
-        });
-        
-        // Resize canvas on window resize
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Custom Checkbox
+            const encryptionCheckbox = document.querySelector('.encryption-checkbox');
+            const checkIcon = encryptionCheckbox.querySelector('i');
+            const checkbox = document.getElementById('encryption');
+            
+            encryptionCheckbox.addEventListener('click', function() {
+                checkbox.checked = !checkbox.checked;
+                if (checkbox.checked) {
+                    checkIcon.classList.remove('hidden');
+                    encryptionCheckbox.classList.add('bg-primary', 'bg-opacity-10', 'border-primary');
+                } else {
+                    checkIcon.classList.add('hidden');
+                    encryptionCheckbox.classList.remove('bg-primary', 'bg-opacity-10', 'border-primary');
+                }
+            });
+            
+            // Skill Bars Animation
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.parentElement.previousElementSibling.querySelector('.text-primary').textContent;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            skillBars.forEach(bar => {
+                bar.style.width = '0';
+                observer.observe(bar);
+            });
+            
+            // Initialize Charts
+            const threatChart = echarts.init(document.getElementById('threat-chart'));
+            const securityChart = echarts.init(document.getElementById('security-chart'));
+            
+            // Threat Chart
+            const threatOption = {
+                animation: false,
+                title: {
+                    text: 'Threat Detection Analysis',
+                    left: 'center',
+                    textStyle: {
+                        color: '#e0e0e0'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    data: ['Detected Threats', 'Mitigated'],
+                    bottom: 10,
+                    textStyle: {
+                        color: '#e0e0e0'
+                    }
+                },
+                grid: {
+                    top: 50,
+                    left: 30,
+                    right: 30,
+                    bottom: 60
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#555'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#e0e0e0'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#555'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#e0e0e0'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'Detected Threats',
+                        type: 'line',
+                        smooth: true,
+                        data: [48, 52, 45, 65, 53, 42],
+                        lineStyle: {
+                            color: 'rgba(87, 181, 231, 1)'
+                        },
+                        itemStyle: {
+                            color: 'rgba(87, 181, 231, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0,
+                                    color: 'rgba(87, 181, 231, 0.3)'
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(87, 181, 231, 0.1)'
+                                }]
+                            }
+                        },
+                        showSymbol: false
+                    },
+                    {
+                        name: 'Mitigated',
+                        type: 'line',
+                        smooth: true,
+                        data: [42, 48, 40, 59, 50, 38],
+                        lineStyle: {
+                            color: 'rgba(141, 211, 199, 1)'
+                        },
+                        itemStyle: {
+                            color: 'rgba(141, 211, 199, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0,
+                                    color: 'rgba(141, 211, 199, 0.3)'
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(141, 211, 199, 0.1)'
+                                }]
+                            }
+                        },
+                        showSymbol: false
+                    }
+                ]
+            };
+            
+            // Security Chart
+            const securityOption = {
+                animation: false,
+                title: {
+                    text: 'Security Incident Categories',
+                    left: 'center',
+                    textStyle: {
+                        color: '#e0e0e0'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    orient: 'horizontal',
+                    bottom: 10,
+                    textStyle: {
+                        color: '#e0e0e0'
+                    }
+                },
+                series: [
+                    {
+                        name: 'Incident Type',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        center: ['50%', '45%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#0a0a0a',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '14',
+                                fontWeight: 'bold',
+                                color: '#e0e0e0'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 35, name: 'Malware', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+                            { value: 25, name: 'Phishing', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+                            { value: 20, name: 'DDoS', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+                            { value: 15, name: 'Insider', itemStyle: { color: 'rgba(252, 141, 98, 1)' } }
+                        ]
+                    }
+                ]
+            };
+            
+            threatChart.setOption(threatOption);
+            securityChart.setOption(securityOption);
+            
+            // Resize charts when window size changes
+            window.addEventListener('resize', function() {
+                threatChart.resize();
+                securityChart.resize();
+            });
         });
     </script>
 </body>
